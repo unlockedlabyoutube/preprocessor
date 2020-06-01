@@ -103,7 +103,7 @@ def write_to_output_file(file_path, file_contents, add_timestamp=False):
     file_format = get_file_extension(file_path)
     if not file_format:
         raise ValueError('Given file path:'+file_path+' does not have a file name and extension.')
-
+    file_path=file_path.replace("raw_tweets", "cleaned_tweets")
     output_file_path = file_path
     if InputFileType.json == file_format:
         return write_to_json_file(output_file_path, file_contents)
